@@ -1,33 +1,36 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\HotelModels;
 
 use CodeIgniter\Model;
-use App\Models\RoomCategoryModel;
 
-class RoomModel extends Model
+class ReservationModel extends Model
 {
-    protected $DBGroup   = 'default';
-    protected $table            = 'rooms';
-    protected $primaryKey       = 'room_id';
+    protected $DBGroup          = 'default';
+    protected $table            = 'reservations';
+    protected $primaryKey       = 'reservation_id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        'price',
-        'roomcategory_id',
-        'number',
-        'status'
+        'cust_name',
+        'cust_email',
+        'cust_phonenumber',
+        'check_in',
+        'check_out',
+        'no_of_adult',
+        'no_of_children',
+        'reservation_slug'
     ];
 
     // Dates
     protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
-    protected $createdField  = 'room_created_at';
-    protected $updatedField  = 'room_updated_at';
-    protected $deletedField  = 'room_deleted_at';
+    protected $createdField  = 'reservation_created_at';
+    protected $updatedField  = 'reservation_updated_at';
+    protected $deletedField  = 'reservation_deleted_at';
 
     // Validation
     protected $validationRules      = [];
@@ -45,12 +48,4 @@ class RoomModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
-
-
-    public function getAllRooms() {
-        return $this->db->table('rooms t1')->join('roomcategories t2', ' t1.roomcategory_id = t2.id')
-        ->get()
-        ->getResultArray();
-    }
-
 }

@@ -3,7 +3,7 @@
 namespace App\Controllers\HotelControllers;
 
 use App\Controllers\BaseController;
-use App\Models\RoomModel;
+use App\Models\HotelModels\RoomModel;
 
 class RoomsController extends BaseController
 {

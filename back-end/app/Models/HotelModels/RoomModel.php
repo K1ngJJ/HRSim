@@ -1,27 +1,33 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\HotelModels;
 
 use CodeIgniter\Model;
+use App\Models\HotelModels\RoomCategoryModel;
 
-class RoomFoodModel extends Model
+class RoomModel extends Model
 {
-    protected $DBGroup          = 'default';
-    protected $table            = 'roomfoods';
-    protected $primaryKey       = 'id';
+    protected $DBGroup   = 'default';
+    protected $table            = 'rooms';
+    protected $primaryKey       = 'room_id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['name'];
+    protected $allowedFields    = [
+        'price',
+        'roomcategory_id',
+        'number',
+        'status'
+    ];
 
     // Dates
     protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
-    protected $createdField  = 'created_at';
-    protected $updatedField  = 'updated_at';
-    protected $deletedField  = 'deleted_at';
+    protected $createdField  = 'room_created_at';
+    protected $updatedField  = 'room_updated_at';
+    protected $deletedField  = 'room_deleted_at';
 
     // Validation
     protected $validationRules      = [];
@@ -40,5 +46,11 @@ class RoomFoodModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
-    
+
+    public function getAllRooms() {
+        return $this->db->table('rooms t1')->join('roomcategories t2', ' t1.roomcategory_id = t2.id')
+        ->get()
+        ->getResultArray();
+    }
+
 }

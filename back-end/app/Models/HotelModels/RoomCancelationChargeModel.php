@@ -1,36 +1,27 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\HotelModels;
 
 use CodeIgniter\Model;
 
-class ReservationModel extends Model
+class RoomCancelationChargeModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'reservations';
-    protected $primaryKey       = 'reservation_id';
+    protected $table            = 'roomcancelationcharges';
+    protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [
-        'cust_name',
-        'cust_email',
-        'cust_phonenumber',
-        'check_in',
-        'check_out',
-        'no_of_adult',
-        'no_of_children',
-        'reservation_slug'
-    ];
+    protected $allowedFields    = ['name'];
 
     // Dates
     protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
-    protected $createdField  = 'reservation_created_at';
-    protected $updatedField  = 'reservation_updated_at';
-    protected $deletedField  = 'reservation_deleted_at';
+    protected $createdField  = 'created_at';
+    protected $updatedField  = 'updated_at';
+    protected $deletedField  = 'deleted_at';
 
     // Validation
     protected $validationRules      = [];

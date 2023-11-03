@@ -1,28 +1,23 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\HotelModels;
 
 use CodeIgniter\Model;
 
-class ContactModel extends Model
+class RoomCategoryModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'contacts';
-    protected $primaryKey       = 'contact_id';
+    protected $table            = 'roomcategories';
+    protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [
-        'customer_name',
-        'customer_phone_number',
-        'customer_email',
-        'customer_message'
-    ];
+    protected $allowedFields    = ['name'];
 
     // Dates
-    protected $useTimestamps = false;
+    protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
@@ -44,4 +39,5 @@ class ContactModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+   
 }

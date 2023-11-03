@@ -1,5 +1,5 @@
 <?php 
-namespace App\Controllers;
+namespace App\Controllers\AdminControllers;
 
 use CodeIgniter\Controller;
 use App\Models\AdminModels\UserModel;

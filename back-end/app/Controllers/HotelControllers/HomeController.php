@@ -3,8 +3,8 @@
 namespace App\Controllers\HotelControllers;
 
 use App\Controllers\BaseController;
-use App\Models\EventModel;
-use App\Models\RoomModel;
+use App\Models\HotelModels\EventModel;
+use App\Models\HotelModels\RoomModel;
 
 class HomeController extends BaseController
 {

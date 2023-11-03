@@ -3,7 +3,7 @@
 namespace App\Controllers\HotelControllers;
 
 use App\Controllers\BaseController;
-use App\Models\EventModel;
+use App\Models\HotelModels\EventModel;
 
 class EventsController extends BaseController
 {

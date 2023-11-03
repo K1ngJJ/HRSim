@@ -10,13 +10,19 @@ $routes = Services::routes();
 if (is_file(SYSTEMPATH . 'Config/Routes.php')) {
     require SYSTEMPATH . 'Config/Routes.php';
 }
-
+// Basic routes
+$routes->get('/', 'App\Controllers\HotelControllers\HomeController::index');
+$routes->get('/about', 'App\Controllers\HotelControllers\AboutController::index');
+$routes->get('/contact', 'App\Controllers\HotelControllers\ContactController::index');
+$routes->get('/events', 'App\Controllers\HotelControllers\EventsController::index');
+$routes->get('/reservation', 'App\Controllers\HotelControllers\ReservationController::index');
+$routes->get('/rooms', 'App\Controllers\HotelControllers\RoomsController::index');
 /*
  * --------------------------------------------------------------------
  * Router Setup
  * --------------------------------------------------------------------
  */
-$routes->setDefaultNamespace('App\Controllers');
+$routes->setDefaultNamespace('App\Controllers\AdminControllers');
 $routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
@@ -27,15 +33,6 @@ $routes->setAutoRoute(true);
  * Route Definitions
  * --------------------------------------------------------------------
  */
-
-// Basic routes
-$routes->get('/', 'HotelControllers\HomeController::index');
-$routes->get('/about', 'HotelControllers\AboutController::index');
-$routes->get('/contact', 'HotelControllers\ContactController::index');
-$routes->get('/events', 'HotelControllers\EventsController::index');
-$routes->get('/reservation', 'HotelControllers\ReservationController::index');
-$routes->get('/rooms', 'HotelControllers\RoomsController::index');
-
 // Grouped routes
 $routes->group('/', function ($routes) {
     $routes->get('detail/(:num)', 'Home::detail/$1');

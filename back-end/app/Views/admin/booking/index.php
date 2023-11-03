@@ -20,7 +20,7 @@
                         </ul>
                         <h1 class="page-header">
                             Data Booking
-                            <a href="<?= base_url('admin/booking/add'); ?>" style="float: right" class="btn btn-theme">Tambah</a>
+                            <a href="<?= base_url('admin/booking/add'); ?>" style="float: right" class="btn btn-theme">add</a>
                         </h1>
                         <hr class="mb-4" />
 
@@ -67,8 +67,8 @@
                                                     <?php } ?>
                                                 </td>
                                                 <td>
-                                                  <a href="<?= base_url('admin/booking/edit/'.$u['booking_id']) ?>" class="btn btn-info">Ubah</a>
-                                                  <a href="<?= base_url('admin/booking/delete/'.$u['booking_id']) ?>" class="btn btn-danger">Hapus</a>
+                                                  <a href="<?= base_url('admin/booking/edit/'.$u['booking_id']) ?>" class="btn btn-info">edit</a>
+                                                  <a href="<?= base_url('admin/booking/delete/'.$u['booking_id']) ?>" class="btn btn-danger">delete</a>
                                                 </td>
                                             </tr>
                                           <?php $no++; endforeach;?>
