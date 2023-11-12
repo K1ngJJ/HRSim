@@ -174,8 +174,8 @@ class UserController extends ResourceController
 
         public function getData()
         {
-            $product = new ProductModel();
-            $data = $product->findAll();
+            $main = new ProductModel();
+            $data = $main->findAll();
             return $this->respond($data);
         }
     
