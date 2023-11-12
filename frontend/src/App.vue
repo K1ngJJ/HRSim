@@ -1,26 +1,32 @@
 <template>
-  <router-view/>
+  <div class="app">
+    <!-- Nav component -->
+    <Nav class="nav-component fixed-top" />
+
+    <!-- If data fetching is not complete, we are showing a div with loading text-->
+    <div v-if="!data">Loading...</div>
+
+    <!-- If data fetching is successful and we have the data then we are showing the main component -->
+    <main v-else class="main">
+      <router-view
+        @setGuestData="getGuestData"
+        @sendGuestInfo="getGuestInfo"
+        :hotelsData="data"
+        :guestData="guestData"
+        :allGuestInfo="allGuestInfo"
+      />
+    </main>
+  </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<style scoped>
+.app {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
 }
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
+.nav-component {
+  max-width: 1280px;
+  margin: 0 auto;
 }
 </style>
